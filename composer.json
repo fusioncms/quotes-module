@@ -1,0 +1,16 @@
+{
+    "name": "efelle/quotes",
+    "require": {
+    	"firebase/php-jwt": "5.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Quotes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Quotes\\Tests\\": "tests/"
+        }
+    }
+}

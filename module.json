@@ -1,0 +1,10 @@
+{
+    "name": "Quotes",
+    "slug": "quotes",
+    "version": "1.0",
+    "description": "This is an example quotes module.",
+
+    "redirect": {
+    	"install": "quotes/install"
+    }
+}
