@@ -1,0 +1,24 @@
+{
+  "name": "@efelle/quotes-module",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "dependencies": {
+    "@tailwindcss/ui": "^0.1.2",
+    "laravel-mix": "^4.0.14",
+    "node-sass": "^4.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "sass-loader": "^7.3.1",
+    "tailwindcss": "^1.0",
+    "vue": "^2.5.22",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.22"
+  }
+}
