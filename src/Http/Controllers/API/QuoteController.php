@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Quotes\Http\Controllers\API;
+namespace Addon\Quotes\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Modules\Quotes\Models\Quotes;
