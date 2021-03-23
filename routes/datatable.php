@@ -1,3 +1,3 @@
 <?php
 
-Route::get('quotes', 'QuotesController@index');
+Route::get('quotes', 'QuoteController@index');

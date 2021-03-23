@@ -2,14 +2,14 @@
 
 namespace Addon\Quotes\Http\Controllers\DataTable;
 
-use Addon\Quotes\Models\Quotes;
+use Addon\Quotes\Models\Quote;
 use Fusion\Http\Controllers\DataTableController;
 
 class QuoteController extends DataTableController
 {
     public function builder()
     {
-        return Quotes::query();
+        return Quote::query();
     }
 
     public function getDisplayableColumns()

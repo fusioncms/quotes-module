@@ -2,7 +2,9 @@
 
 namespace Addon\Quotes\Providers;
 
+use Fusion\Fusion;
 use Addon\Quotes\Console\QuoteCommand;
+use Addon\Quotes\Fieldtypes\QuoteFieldtype;
 use Fusion\Providers\AddonServiceProvider;
 
 class QuotesServiceProvider extends AddonServiceProvider
@@ -15,7 +17,7 @@ class QuotesServiceProvider extends AddonServiceProvider
     protected $navigation = [
         'title' => 'Quotes',
         'to'    => '/quotes',
-        'icon'  => 'comment-alt'
+        'icon'  => 'quote-right'
     ];
 
     /**
@@ -25,5 +27,24 @@ class QuotesServiceProvider extends AddonServiceProvider
      */
     protected $commands = [
     	QuoteCommand::class
+    ];
+
+    /**
+     * Fieldtypes.
+     *
+     * @var array
+     */
+    protected $fieldtypes = [
+        QuoteFieldtype::class
+    ];
+
+    /**
+     * Front-end assets.
+     * 
+     * @var array
+     */
+    protected $assets = [
+        '/vendor/quotes/js/quotes.js',
+        '/vendor/quotes/css/quotes.css'
     ];
 }

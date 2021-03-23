@@ -18,4 +18,9 @@ class Quote extends Model
         'author',
         'quote',
     ];
+
+    public function getDisplayAttribute()
+    {
+        return "{$this->quote} -{$this->author}";
+    }
 }

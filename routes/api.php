@@ -1,3 +1,3 @@
 <?php
 
-Route::apiResource('/quotes', 'QuotesController');
+Route::apiResource('/quotes', 'QuoteController');
