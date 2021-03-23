@@ -1,16 +1,45 @@
 {
-    "name": "efelle/quotes",
+    "name": "fusioncms/quotes-module",
+    "description": "This is a fresh start. Now go and build something amazing.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FusionCMS",
+            "homepage": "https://beta.getfusioncms.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "version": "1.0.0",
+    "support": {
+        "issues": "https://github.com/fusioncms/quotes-module/issues",
+        "source": "https://github.com/fusioncms/quotes-module",
+        "chat": "https://beta.getfusioncms.com/discord"
+    },
     "require": {
     	"firebase/php-jwt": "5.0.0"
     },
     "autoload": {
+        "classmap": [
+            "database/"
+        ],
         "psr-4": {
-            "Modules\\Quotes\\": "src/"
+            "Addon\\Quotes\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\Quotes\\Tests\\": "tests/"
+            "Addon\\Quotes\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "fusioncms": {
+            "name": "Quotes"
+        },
+        "laravel": {
+            "providers": [
+                "Addon\\Quotes\\Providers\\QuotesServiceProvider"
+            ]
         }
     }
 }

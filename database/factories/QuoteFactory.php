@@ -1,11 +1,29 @@
 <?php
 
-use Faker\Generator as Faker;
-use Modules\Quotes\Models\Quote;
+namespace Database\Factories;
 
-$factory->define(Quote::class, function (Faker $faker) {
-    return [
-        'author' => $faker->name,
-        'quote'  => $faker->sentence,
-    ];
-});
+use Addon\Quotes\Models\Quote;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class AddonFactory extends Factory
+{
+	/**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+	protected $model = Quote::class;
+
+	/**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+	public function definition()
+	{
+		return [
+	        'author' => $this->faker->name,
+	        'quote'  => $this->faker->sentence,
+	    ];
+	}
+}

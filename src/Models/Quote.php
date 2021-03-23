@@ -1,14 +1,13 @@
 <?php
 
-namespace Modules\Quotes\Models;
+namespace Addon\Quotes\Models;
 
-use Fusion\Concerns\HasExtension;
-use Fusion\Concerns\CachesQueries;
 use Fusion\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Quote extends Model
 {
-    use CachesQueries, HasExtension;
+    use HasFactory;
 
     /**
      * The attributes that are fillable via mass assignment.
@@ -16,18 +15,12 @@ class Quote extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'handle',
-        'description',
-        'status'
+        'author',
+        'quote',
     ];
 
-    /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'status' => 'boolean',
-    ];
+    public function getDisplayAttribute()
+    {
+        return "{$this->quote} -{$this->author}";
+    }
 }

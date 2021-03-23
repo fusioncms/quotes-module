@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Quotes\Http\Resources;
+namespace Addon\Quotes\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,6 +14,10 @@ class QuoteResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $resource = parent::toArray($request);
+
+        $resource['display'] = $this->display;
+
+        return $resource;
     }
 }

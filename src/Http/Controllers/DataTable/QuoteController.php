@@ -1,48 +1,46 @@
 <?php
 
-namespace Modules\Quotes\Http\Controllers\DataTable;
+namespace Addon\Quotes\Http\Controllers\DataTable;
 
-use Modules\Quotes\Models\Quotes;
+use Addon\Quotes\Models\Quote;
 use Fusion\Http\Controllers\DataTableController;
 
 class QuoteController extends DataTableController
 {
     public function builder()
     {
-        return Quotes::query();
+        return Quote::query();
     }
 
     public function getDisplayableColumns()
     {
         return [
-            'name',
-            'handle',
-            'description',
+            'author',
+            'quote',
         ];
     }
 
     public function getFilterable()
     {
         return [
-            'name',
-            'description',
+            'author',
+            'quote',
         ];
     }
 
     public function getSortable()
     {
         return [
-            'name',
-            'handle',
+            'author',
+            'quote',
         ];
     }
 
     public function getCustomColumnNames()
     {
         return [
-            'name'        => 'Name',
-            'handle'      => 'Handle',
-            'description' => 'Description',
+            'author' => 'Quote',
+            'quote'  => 'Quote',
         ];
     }
 }

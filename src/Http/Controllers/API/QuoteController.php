@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Quotes\Http\Controllers\API;
+namespace Addon\Quotes\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use Modules\Quotes\Models\Quotes;
+use Addon\Quotes\Models\Quote;
 use Fusion\Http\Controllers\Controller;
-use Modules\Quotes\Http\Requests\QuotesRequest;
-use Modules\Quotes\Http\Resources\QuotesResource;
+use Addon\Quotes\Http\Requests\QuoteRequest;
+use Addon\Quotes\Http\Resources\QuoteResource;
 
 class QuoteController extends Controller
 {
@@ -14,14 +14,14 @@ class QuoteController extends Controller
      * Display all resources.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return JsonResponse
+     * @return \Addon\Http\Responses\QuoteResource
      */
     public function index(Request $request)
     {
-        $this->authorize('quotes.show');
+        $this->authorize('quotes.viewAny');
 
-        return QuotesResource::collection(
-            Quotes::orderBy('name')->paginate(25)
+        return QuoteResource::collection(
+            Quote::orderBy('author')->paginate(25)
         );
     }
 
@@ -29,54 +29,54 @@ class QuoteController extends Controller
      * Display the specified resource.
      *
      * @param  \Illuminate\Http\Request   $request
-     * @param  \Modules\Quotes\Models\Quotes  $quotes
-     * @return \Modules\Http\Responses\QuotesResource
+     * @param  \Addon\Quotes\Models\Quote  $quotes
+     * @return \Addon\Http\Responses\QuoteResource
      */
-    public function show(Request $request, Quotes $quotes)
+    public function show(Request $request, Quote $quote)
     {
         $this->authorize('quotes.show');
 
-        return new QuotesResource($quotes);
+        return new QuoteResource($quote);
     }
 
     /**
      * Store newly created record in storage.
      *
-     * @param  \Modules\Quotes\Http\Requests\QuotesRequest  $request
-     * @return \Modules\Http\Responses\QuotesResource
+     * @param  \Addon\Quotes\Http\Requests\QuoteRequest  $request
+     * @return \Addon\Http\Responses\QuoteResource
      */
-    public function store(QuotesRequest $request)
+    public function store(QuoteRequest $request)
     {
-        $quotes = Quotes::create($request->validated());
+        $quote = Quote::create($request->validated());
 
-        return new QuotesResource($quotes);
+        return new QuoteResource($quote);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Modules\Quotes\Http\Requests\QuotesRequest  $request
-     * @param  \Modules\Quotes\Models\Quotes                $quotes
-     * @return \Modules\Http\Responses\QuotesResource
+     * @param  \Addon\Quotes\Http\Requests\QuoteRequest  $request
+     * @param  \Addon\Quotes\Models\Quote                $quote
+     * @return \Addon\Http\Responses\QuoteResource
      */
-    public function update(QuotesRequest $request, Quotes $quotes)
+    public function update(QuoteRequest $request, Quote $quote)
     {
-        $quotes->update($request->validated());
+        $quote->update($request->validated());
 
-        return new QuotesResource($quotes);
+        return new QuoteResource($quote);
     }
 
     /**
      * Remove specified resource from storage.
      *
      * @param  \Illuminate\Http\Request   $request
-     * @param  \Modules\Quotes\Models\Quotes  $quotes
+     * @param  \Addon\Quotes\Models\Quote  $quote
      * @return void
      */
-    public function destroy(Request $request, Quotes $quotes)
+    public function destroy(Request $request, Quote $quote)
     {
         $this->authorize('quotes.delete');
 
-        $quotes->delete();
+        $quote->delete();
     }
 }
