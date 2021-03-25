@@ -16,9 +16,6 @@
         "source": "https://github.com/fusioncms/quotes-module",
         "chat": "https://beta.getfusioncms.com/discord"
     },
-    "require": {
-    	"firebase/php-jwt": "5.0.0"
-    },
     "autoload": {
         "classmap": [
             "database/"
