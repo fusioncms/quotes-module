@@ -13,7 +13,7 @@
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "laravel-mix": "^6.0",
         "lodash": "^4.17.19",
-        "node-sass": "^4.11.0",
+        "node-sass": "^7.0.0",
         "portal-vue": "^1.5.1",
         "postcss": "^8.1.7",
         "purgecss-webpack-plugin": "^4.0",
